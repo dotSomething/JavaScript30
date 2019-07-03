@@ -5,7 +5,7 @@
   <title>Array Cardio 💪</title>
 </head>
 <body>
-  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <!-- <p><em>Psst: have a look at the JavaScript Console</em> 💁</p> -->
   <script>
     // Get your shorts on - this is an array workout!
     // ## Array Cardio Day 1
@@ -32,27 +32,167 @@
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 
-    // Array.prototype.map()
-    // 2. Give us an array of the inventors' first and last names
+	// const year1500 = inventors.filter(inventors => inventors.year > 1499 && inventors.year < 1600);
+	// console.log('Inventors born in the 1500\'s');
+	// console.table(year1500);
 
-    // Array.prototype.sort()
-    // 3. Sort the inventors by birthdate, oldest to youngest
+    // // Array.prototype.map()
+    // // 2. Give us an array of the inventors' first and last names
 
-    // Array.prototype.reduce()
-    // 4. How many years did all the inventors live?
+	// const names = inventors.map(inventors => inventors.first + ' ' + inventors.last);
+	// console.log('Inventors first and last names using concatenated arrow function');
+	// console.table(names);
 
-    // 5. Sort the inventors by years lived
+	// const names2 = inventors.map(inventors => `${inventors.first} ${inventors.last}`);
+	// console.log('Inventors first and last names using template literals arrow function');
+	// console.table(names2);
 
-    // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-    // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+    // // Array.prototype.sort()
+    // // 3. Sort the inventors by birthdate, oldest to youngest
+
+	// const birthdaySortAsc = inventors.sort(function (dob1, dob2) {
+	// 	return dob1.year - dob2.year;
+	// });
+	// console.log('Inventors sorted by birthday, oldest to youngest, using standard Function');
+	// console.table(birthdaySortAsc);
+
+	// const dobSortedAsc = inventors.sort(dob => dob.year - dob.year);
+	// console.log('Inventors sorted by birthday, oldest to youngest, using arrow Function');
+	// console.table(dobSortedAsc);
+
+	// const dobSortedDesc = inventors.sort(dob => -dob.year + -dob.year);
+	// console.log('Inventors sorted by birthday, youngest to oldest, using arrow Function');
+	// console.table(dobSortedDesc);
+
+	// const sortByFirstNames = inventors.sort(function(firstName, secondName) {
+	// 	if (firstName.first < secondName.first) {
+	// 		return -1
+	// 	} else {
+	// 		return 1
+	// 	}
+	// })
+	// console.log('sort by first name - standard function ')
+	// console.table(sortByFirstNames);
+
+	// const sortByFirstNamesT = inventors.sort((comp1, comp2) => inventors.first < inventors.first ? -1 : 1);
+	// console.log('sort by first name - arrow function ')
+	// console.table(sortByFirstNamesT);
+
+	// const sortByLastName = inventors.sort(function(name1, name2){
+	// 	if (name1.last < name2.last) {
+	// 		return -1
+	// 	} else {
+	// 		return 1;
+	// 	}
+	// })
+	// console.log('sort by last name')
+	// console.table(sortByLastName);
+
+    // // Array.prototype.reduce()
+    // // 4. How many years did all the inventors live?
+
+	// const totalYears = inventors.reduce((total, inventor) => {
+	// 	return total + (inventor.passed - inventor.year);
+	// }, 	0);
+
+	// console.log('Aggragate of all year: ' + totalYears)
+
+    // // 5. Sort the inventors by years lived
+
+	// const sortByYearsLived = inventors.sort((year1, year2) => (year1.passed - year1.year) < (year2.passed - year2.year) ? 1 : -1 );
+	// console.log('Sorted by years lived longest');
+	// console.table(sortByYearsLived);
 
 
-    // 7. sort Exercise
-    // Sort the people alphabetically by last name
+    // // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+    // // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+
+	// // const category = document.querySelector('.mw-category');
+	// // const links = Array.from(category.querySelectorAll('a'));
+	// // const de = links
+	// // 	.map(links => links.textContent)
+	// // 	.filter(deStreets => deStreets.includes('de'));
+
+	// // const tileData = document.getElementsByClassName('tile');   // Gets DOM.  Next read value of dataset.pid
+	// // const styleNumbers = ;
+
+    // // 7. sort Exercise
+    // // Sort the people alphabetically by last name
+	// const sortedPeople = people.sort((last1, last2) => last1 < last2 ? -1 : 1 );
+	// const formatted = sortByFirstNames.splt
+	// console.log('People sorted by last name.');
+	// console.log(sortedPeople);
 
     // 8. Reduce Exercise
-    // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+	// Sum up the instances of each of these
+	/* SYNTAX
+		array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+	*/
+
+	// const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogostick'];
+    // const transportation = data.reduce(function(acc, val) {
+    //   if (!acc[val]) {
+    //     acc[val] = 0;
+    //   }
+	//   acc[val]++;
+	//   console.log(acc);
+    //   return acc;
+    // }, {});
+
+    // console.log(transportation);
+
+	// const data2 = [
+	// 	{type: 'car', maker: 'nissan'},
+	// 	{type: 'car', maker: 'gmc'},
+	// 	{type: 'truck', maker: 'toyota'},
+	// 	{type: 'bike', maker: 'dodge'}
+	// ]
+
+	// const transportation = data2.reduce((acc, val)=> {
+	// 	// console.log(val);
+	// 	console.log(acc);
+	// 	if (!acc[val.type]) {
+	// 		acc[val.type] = 0;
+	// 	}
+	// 	acc[val.type]++;
+	// 	return acc;
+	// },{});
+	// // console.log(transportation);
+
+
+	// const totalYears = inventors.reduce((total, inventor) => {
+	// 	return total + (inventor.passed - inventor.year);
+	// }, 	0);
+
+const moreVoters = [
+	{name:'Bob' , age: 30, voted: true},
+	{name:'Jake' , age: 32, voted: true},
+	{name:'Kate' , age: 25, voted: false},
+	{name:'Sam' , age: 20, voted: false},
+	{name:'Phil' , age: 21, voted: true},
+	{name:'Ed' , age:55, voted:true},
+	{name:'Tami' , age: 54, voted:true},
+	{name: 'Mary', age: 31, voted: false},
+	{name: 'Becky', age: 43, voted: false},
+	{name: 'Joey', age: 41, voted: true},
+	{name: 'Jeff', age: 30, voted: true},
+	{name: 'Zack', age: 19, voted: false}
+];
+
+
+	const updatedVoterRecords = moreVoters.map((newcurr) => {
+	if (newcurr.voted === true) {
+		newcurr.note = "Thanks";
+		console.log(moreVoters);
+	}
+	return newcurr;
+
+});
+
+console.log('More Voters With Thank You Note:  ' + updatedVoterRecords);
+console.log('');
+console.log('');
 
   </script>
 </body>
